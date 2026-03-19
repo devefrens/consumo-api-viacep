@@ -1,0 +1,184 @@
+:root {
+    /* Cores globais */
+    --cor-fundo-body: #483D8B;
+    --cor-fundo-modal: #3D3580;
+    --cor-fundo-container: #6A5ACD;
+
+    --cor-fonte-resultado: aliceblue;
+    --cor-fonte-btnClique: white;
+
+    --fonte-tituloH1: Arial, Helvetica, sans-serif;
+
+    --cor-button-clique: #0A0A0A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* evita barras de rolagem durante o modal ativo e rebaixa jumps ou flickers. */
+dialog {
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--cor-fundo-body);
+}
+
+h1 {
+    font-family: var(--fonte-tituloH1);
+}
+
+.container {
+    width: 500px;
+    height: 350px;
+    gap: 8px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--cor-fundo-container);
+    box-shadow: 1px 1px 15px -2px rgba(255,255,255,0.44);
+    -webkit-box-shadow: 1px 1px 15px -2px rgba(255,255,255,0.44);
+    -moz-box-shadow: 1px 1px 15px -2px rgba(255,255,255,0.44);
+}
+
+#resultado {
+    margin-top: 10px;
+    color: var(--cor-fonte-resultado);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#cep {
+    width: 70%;
+    height: 9%;
+    border-radius: 7px;
+    border: none;
+    padding: 10px;
+    outline: none;
+}
+
+#cep:hover {
+    outline: none;
+}
+
+#btn-clique {
+    outline: none;
+    width: 70%;
+    height: 9%;
+    border-radius: 7px;
+    border: none;
+    background-color: var(--cor-button-clique);
+    color: var(--cor-fonte-btnClique);
+}
+
+#btn-clique:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+/* Estilização do MODAL */
+#modal-resultado {
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    margin: auto;
+    background: transparent;
+    box-shadow: none;
+    z-index: 1000;
+}
+
+#modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 355px;
+    width: 505px;
+
+    background: var(--cor-fundo-modal);
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.35), 0 18px 40px rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+    transition: opacity 220ms ease, transform 220ms ease;
+}
+
+#modal-content.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+#modal-content.closing {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+}
+
+#modal-resultado:hover {
+  transform: translate3d(0, -12px, 0) scale(1.03);
+  box-shadow: 0 12px 50px rgba(0,0,0,0.42), 0 24px 60px rgba(0,0,0,0.30);
+}
+
+#modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 355px;
+    width: 505px;
+
+    background: var(--cor-fundo-modal);
+    border-radius: 8px;
+    border: none;
+
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+    transition: opacity 220ms ease, transform 220ms ease;
+}
+
+#modal-content.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+#modal-content.closing {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+}
+
+#btn-close {
+    margin-top: 15px;
+    height: 35px;
+    width: 70%;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: var(--cor-button-clique);
+    color: white;
+    font-weight: 700;
+}
+
+#btn-close:hover {
+    opacity: 0.8;
+}
+
+dialog::backdrop {
+    background: rgba(0,0,0,0.56);
+    backdrop-filter: blur(2px);
+}

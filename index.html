@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Consumindo API</title>
+</head>
+<body>
+    <div class="container">
+        <h1>API - Via CEP</h1>
+        <input type="text" placeholder="Informe o CEP..." id="cep">
+        <button id="btn-clique">Clique aqui</button>
+        <p id="mensagem-erro"></p>
+    </div>  
+    <div id="backdrop-blur"></div>
+    <dialog id="modal-resultado">
+        <div id="modal-content">            
+            <p id="resultado"></p>
+            <button type="button" id="btn-close">Fechar</button>            
+        </div>
+    </dialog>
+    <script src="./js/script.js"></script>
+</body>
+</html>
